@@ -58,8 +58,14 @@ getCircleCircumference(5);
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  if (typeof value1 !== 'number' || typeof value1 !== 'number') {
+    throw new Error('В качестве аргументов переданы не числа');
+  }
+
+  const num1 = value1 / 2;
+  const num2 = value2 / 2;
+  return num1 + num2;
 }
 
 /**
