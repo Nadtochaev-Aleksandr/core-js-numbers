@@ -127,8 +127,13 @@ function getLinearEquationRoot(a, b) {
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const vector1Length = ((x1 - 0) ** 2 + (y1 - 0) ** 2) ** 0.5;
+  const vector2Length = ((x2 - 0) ** 2 + (y2 - 0) ** 2) ** 0.5;
+  const vectorsMultiplues = x1 * x2 + y1 * y2;
+  const cosinusAngle = vectorsMultiplues / (vector1Length * vector2Length);
+  const angle = Math.acos(cosinusAngle);
+  return angle;
 }
 
 /**
