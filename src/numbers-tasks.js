@@ -149,8 +149,27 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  if (typeof value !== 'number') {
+    throw new Error('введено не десятичное число');
+  }
+
+  if (value % 1 !== 0) {
+    throw new Error('введено не целое число, введите целое число');
+  }
+
+  if (value < 0) {
+    throw new Error('введено отрицательное число');
+  }
+
+  if (Number.isNaN(value)) {
+    throw new Error('откуда-то вылез NaN');
+  }
+
+  const valueToString = value.toString();
+  const lastValuesElements = valueToString.slice(-1);
+  const result = Number(lastValuesElements);
+  return result;
 }
 
 /**
