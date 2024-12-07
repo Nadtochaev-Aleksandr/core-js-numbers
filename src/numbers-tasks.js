@@ -269,8 +269,12 @@ function isPrime(n) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const numParametr = Number(value);
+  if (Number.isNaN(numParametr)) {
+    return def;
+  }
+  return numParametr;
 }
 
 /**
@@ -284,8 +288,8 @@ function toNumber(/* value, def */) {
  *   -2 => -8
  *   0  => 0
  */
-function getCube(/* num */) {
-  throw new Error('Not implemented');
+function getCube(num) {
+  return num ** 3;
 }
 
 /**
@@ -301,8 +305,24 @@ function getCube(/* num */) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  if (index === 0) {
+    return 0;
+  }
+
+  if (index === 1) {
+    return 1;
+  }
+
+  let previos = 0;
+  let actual = 1;
+  let i = 2;
+  for (i; i <= index; i += 1) {
+    const next = previos + actual;
+    previos = actual;
+    actual = next;
+  }
+  return actual;
 }
 
 /**
