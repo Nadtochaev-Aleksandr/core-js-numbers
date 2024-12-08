@@ -646,9 +646,11 @@ function roundToNearestInteger(number) {
  * 5.4  => 5
  * -5.5 => -5
  */
-function getIntegerPartNumber(/* number */) {
-  throw new Error('Not implemented');
+function getIntegerPartNumber(number) {
+  return Math.trunc(number);
 }
+
+// return number.toFixed();
 
 /**
  * Returns the sum of numbers.
@@ -662,8 +664,9 @@ function getIntegerPartNumber(/* number */) {
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
  */
-function getSumOfNumbers(/* x1, x2, x3 */) {
-  throw new Error('Not implemented');
+function getSumOfNumbers(x1, x2, x3) {
+  const sum = x1 + x2 + x3;
+  return sum.toFixed(5);
 }
 
 /**
@@ -678,8 +681,8 @@ function getSumOfNumbers(/* x1, x2, x3 */) {
  * -5, -6 => -5
  * 0, 5   => 5
  */
-function getMaxNumber(/* firstNumber, secondNumber */) {
-  throw new Error('Not implemented');
+function getMaxNumber(firstNumber, secondNumber) {
+  return Math.max(firstNumber, secondNumber);
 }
 
 /**
@@ -694,8 +697,10 @@ function getMaxNumber(/* firstNumber, secondNumber */) {
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
  * -1, 1 => -1 | 0 | 1
  */
-function getRandomInteger(/* min, max */) {
-  throw new Error('Not implemented');
+function getRandomInteger(min, max) {
+  const newMin = Math.ceil(min);
+  const newMax = Math.floor(max);
+  return Math.floor(Math.random() * (newMax - newMin + 1) + newMin);
 }
 
 /**
@@ -708,9 +713,12 @@ function getRandomInteger(/* min, max */) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
+function getHypotenuse(a, b) {
+  return Math.hypot(a, b);
 }
+
+// const gipotenuza = (a ** 2 + b ** 2) ** 0.5;
+// return gipotenuza;
 
 /**
  * Returns count of odd numbers from zero to the resulting number.
@@ -725,8 +733,17 @@ function getHypotenuse(/* a, b */) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(number) {
+  let i = 0;
+  const num = Math.abs(number);
+
+  for (let n = 0; n <= num; n += 1) {
+    if (n % 2 !== 0) {
+      i += 1;
+    }
+  }
+
+  return i;
 }
 
 module.exports = {
