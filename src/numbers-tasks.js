@@ -417,8 +417,8 @@ function getSine(num) {
  * 255, 16 => 'ff'
  * 2, 2    => '10'
  */
-function numberToStringInBase(/* number, base */) {
-  throw new Error('Not implemented');
+function numberToStringInBase(number, base) {
+  return number.toString(base);
 }
 
 /**
@@ -464,9 +464,22 @@ function toFixed(number, fractionDigits) {
  * 12345, 7    => '12345.00'
  * 12.345, 4   => '12.35'
  */
-function toPrecision(/* number, precision */) {
-  throw new Error('Not implemented');
+function toPrecision(number, precision) {
+  return number.toPrecision(precision);
 }
+
+// const x = number.toString();
+// if (x.length > precision) {
+//   return x.slice(precision);
+// }
+
+// if (x.length === precision) {
+//   return x;
+// }
+
+// const delta = precision - x.length;
+// const resultNumber = number.toFixed(delta);
+// return resultNumber.toString();
 
 /**
  * Returns the primitive value of a Number object.
